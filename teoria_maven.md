@@ -33,25 +33,39 @@ Para proyectos muy simples, puede no ser necesario, pero en cuanto el proyecto c
 ##Comandos básicos
 
 mvn clean: Elimina el directorio target y todo su contenido. Es útil para empezar una compilación desde cero. 
+
 mvn compile: Compila el código fuente y genera los archivos .class en el directorio target/classes. 
+
 mvn test: Ejecuta las pruebas unitarias definidas en el proyecto. 
+
 mvn package: Empaqueta el proyecto compilado en un archivo, como un .jar o .war. 
+
 mvn install: Compila el proyecto, empaqueta el artefacto y lo instala en el repositorio local. Esto lo hace disponible para otros proyectos en la misma máquina. 
 
 ##Comandos comunes y avanzados
 
 mvn archetype:generate: Crea un nuevo proyecto a partir de una plantilla (archetype). 
+
 mvn dependency:tree: Muestra un árbol de todas las dependencias del proyecto, lo que ayuda a depurar conflictos. 
+
 mvn javadoc:javadoc: Genera la documentación Javadoc del proyecto. 
+
 mvn install: Instala el artefacto en el repositorio local para que pueda ser utilizado por otros proyectos en tu sistema. 
+
 mvn deploy: Despliega el artefacto en un repositorio remoto. 
 
 ##Combinar comandos
 
 mvn clean install: Una combinación común que primero limpia el proyecto, luego compila, prueba y empaqueta, y finalmente instala el artefacto en el repositorio local. 
+
 Opciones de línea de comandos
+
 -Dtest=NombreDeTuClaseDeTest: Ejecuta solo una prueba específica. 
+
 -X o --debug: Ejecuta Maven en modo de depuración para obtener información detallada. 
+
 -q o --quiet: Suprime la mayor parte de la salida, mostrando solo los mensajes de error. 
+
 -P <nombre_perfil>: Activa un perfil de Maven específico definido en el archivo pom.xml. 
+
 mvn -version: Muestra la versión de Maven instalada. 
