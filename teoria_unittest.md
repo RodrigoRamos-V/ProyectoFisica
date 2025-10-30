@@ -10,12 +10,17 @@ En Python, el módulo estándar unittest se utiliza para escribir y ejecutar pru
 Ejemplo básico:
 
 import unittest
+
 from calculadora import sumar
 
 class TestCalculadora(unittest.TestCase):
+
     def test_sumar(self):
+    
         resultado = sumar(2, 3)
+        
         self.assertEqual(resultado, 5)
 
 if __name__ == "__main__":
+
     unittest.main()
