@@ -54,7 +54,7 @@ python -m unittest test_calculadora.py
 
 - Al refactorizar: para confirmar que los cambios no rompen el comportamiento previo.
 
-## Buenas prácticas
+## 1. Buenas prácticas
 
 - Una prueba debe verificarse con solo una cosa.
 
@@ -65,6 +65,20 @@ python -m unittest test_calculadora.py
 - Mantener las pruebas rápidas y repetibles.
 
 - Integrarlas en un sistema de integración continua (CI).
+
+## 2. Ejemplo de estructura de proyecto con pruebas
+
+mi_proyecto/
+
+├── calculadora.py
+
+├── test/
+
+│   ├── __init__.py
+
+│   └── test_calculadora.py
+
+└── teoria_unittest.md
 
 
 
