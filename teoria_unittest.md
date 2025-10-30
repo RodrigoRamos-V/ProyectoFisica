@@ -80,5 +80,10 @@ mi_proyecto/
 
 └── teoria_unittest.md
 
+## 3. Herramientas adicionales
 
+- pytest: framework más flexible y moderno que unittest.
 
+- coverage.py: mide qué porcentaje del código está cubierto por pruebas.
+
+- tox / GitHub Actions: automatizan la ejecución de pruebas en distintos entornos.
