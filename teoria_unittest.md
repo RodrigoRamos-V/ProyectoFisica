@@ -54,7 +54,17 @@ python -m unittest test_calculadora.py
 
 - Al refactorizar: para confirmar que los cambios no rompen el comportamiento previo.
 
+## Buenas prácticas
 
+- Una prueba debe verificar solo una cosa.
+
+- Los nombres deben ser claros y descriptivos.
+
+- No depender de recursos externos (como bases de datos o red).
+
+- Mantener las pruebas rápidas y repetibles.
+
+- Integrarlas en un sistema de integración continua (CI).
 
 
 
