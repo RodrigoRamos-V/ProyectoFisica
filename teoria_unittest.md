@@ -4,6 +4,8 @@ Las pruebas unitarias (unit tests) son un tipo de prueba de software que verific
 
 Su objetivo principal es detectar errores temprano en el ciclo de desarrollo y asegurar que cada parte del código haga exactamente lo que se espera.
 
+
+
 ¿Cómo usar las pruebas unitarias?
 
 En Python, el módulo estándar unittest se utiliza para escribir y ejecutar pruebas.
@@ -29,6 +31,8 @@ if __name__ == "__main__":
 Ejecutar las pruebas:
 
 python -m unittest test_calculadora.py
+
+
 
 ¿Por qué usar pruebas unitarias?
 
