@@ -32,8 +32,6 @@ Ejecutar las pruebas:
 
 python -m unittest test_calculadora.py
 
-
-
 ## ¿Por qué usar pruebas unitarias?
 
 - Previenen errores futuros: ayudan a detectar problemas rápidamente cuando el código cambia.
@@ -46,7 +44,15 @@ python -m unittest test_calculadora.py
 
 - Aumentan la confianza en los cambios: especialmente útil en equipos grandes o proyectos extensos.
 
+## ¿Cuándo usar pruebas unitarias?
 
+- Durante el desarrollo: al crear nuevas funciones o clases.
+
+- Antes de integrar módulos: para asegurar que cada pieza funciona por sí sola.
+
+- Al corregir errores: primero se escribe una prueba que reproduzca el error, luego se corrige el código.
+
+- Al refactorizar: para confirmar que los cambios no rompen el comportamiento previo.
 
 
 
