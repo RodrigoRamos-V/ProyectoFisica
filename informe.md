@@ -103,4 +103,4 @@ El gráfico de x(t), v(t), a(t) frente al tiempo es una función senoidal o cose
 - v(t): velocidad → seno (desfasada 90°)
 
 - a(t): aceleración → opuesta al desplazamiento
-- 
+
