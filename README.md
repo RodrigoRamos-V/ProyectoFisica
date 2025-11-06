@@ -1,5 +1,5 @@
 Fisica General Grupo B1
 
-- Claudio Rodrigo Ramos Vargas Arnez - Informatica
+- Claudio Rodrigo Ramos Vargas  - Informatica
 
-- Said Nils Arnez Suarez Arnez - Informatica
+- Said Nils Arnez Suarez  - Informatica
