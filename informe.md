@@ -84,7 +84,7 @@ Energía mecánica total (constante):
 
 Esto significa que cuando el cuerpo pasa por la posición de equilibrio, su energía es totalmente cinética, y en los extremos, totalmente potencial.
 
-​## 6. Ejemplos de MAS en la vida real
+## 6. Ejemplos de MAS en la vida real
 
 - Un resorte con una masa colgando.
 
