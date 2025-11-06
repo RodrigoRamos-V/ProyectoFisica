@@ -94,7 +94,7 @@ Esto significa que cuando el cuerpo pasa por la posición de equilibrio, su ener
 
 - Los átomos en una red cristalina, que oscilan alrededor de sus posiciones de equilibrio.
 
-7. Representación gráfica
+## 7. Representación gráfica
 
 El gráfico de x(t), v(t), a(t) frente al tiempo es una función senoidal o cosenoidal.
 
