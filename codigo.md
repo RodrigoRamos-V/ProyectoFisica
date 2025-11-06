@@ -23,7 +23,9 @@ datasets = [
         [-1.000, -0.809, -0.309, 0.309, 0.809, 1.000])
 ]
 
-# Errores
+# ----------------------------------------------
+# ERRORES EXPERIMENTALES
+# ----------------------------------------------
 xe = 0.001  # [m]
 
 # ----------------------------------------------
@@ -47,13 +49,17 @@ for i, (factor, t, x) in enumerate(datasets, start=1):
     omega0 = 2 * math.pi
     phi0 = 0.0
 
-    popt, pcov = curve_fit(modelo, t, x, p0=[A0, omega0, phi0], sigma=np.full_like(x, xe), absolute_sigma=True)
+    # Ajuste de la curva
+    popt, pcov = curve_fit(
+        modelo, t, x, p0=[A0, omega0, phi0],
+        sigma=np.full_like(x, xe), absolute_sigma=True
+    )
     perr = np.sqrt(np.diag(pcov))
 
     A, omega, phi = popt
     sigma_A, sigma_omega, sigma_phi = perr
 
-    # Calcular k/m
+    # Calcular k/m y su incertidumbre
     k_m = factor * omega**2
     sigma_k_m = factor * 2 * omega * sigma_omega
 
@@ -66,7 +72,7 @@ for i, (factor, t, x) in enumerate(datasets, start=1):
         "σ_(k/m)": sigma_k_m
     })
 
-    # Graficar
+    # Graficar cada ajuste
     plt.figure()
     plt.errorbar(t, x, yerr=xe, fmt='o', label='Datos experimentales')
     plt.plot(t, modelo(t, *popt), '-', label=f"Ajuste: ω={omega:.2f} rad/s")
@@ -91,11 +97,12 @@ sigma_k_m_mean = np.sqrt(1 / np.sum(weights))
 T_9m = 6 * math.pi / math.sqrt(k_m_mean)
 sigma_T_9m = (3 * math.pi / (k_m_mean ** 1.5)) * sigma_k_m_mean
 
+# Mostrar resultados
 print("\n--- RESULTADOS GLOBALES ---")
 print(df)
 print(f"\nPromedio (k/m) = {k_m_mean:.4f} ± {sigma_k_m_mean:.4f} s⁻²")
 print(f"Período para masa 9m: T = {T_9m:.4f} ± {sigma_T_9m:.4f} s")
 
-# Guardar resultados
+# Guardar resultados en CSV
 df.to_csv("resultados_mas.csv", index=False)
 print("\nResultados guardados en 'resultados_mas.csv'")
