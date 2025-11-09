@@ -1,17 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# --- Datos experimentales: Tabla 1 (masa = 4m) ---
 data = {
     "t": [0.000, 0.200, 0.400, 0.600, 0.800, 1.000],
     "x": [1.000, 0.951, 0.809, 0.588, 0.309, 0.000],
     "v": [0.000, -0.485, -0.923, -1.271, -1.494, -1.571]
 }
 
-# Crear DataFrame
 df = pd.DataFrame(data)
 
-# --- Gráfico de posición ---
 plt.figure(figsize=(8, 4))
 plt.plot(df["t"], df["x"], "o-", label="Posición x(t)")
 plt.xlabel("Tiempo [s]")
@@ -22,7 +19,6 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-# --- Gráfico de velocidad ---
 plt.figure(figsize=(8, 4))
 plt.plot(df["t"], df["v"], "o-r", label="Velocidad v(t)")
 plt.xlabel("Tiempo [s]")
@@ -32,3 +28,4 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
