@@ -104,3 +104,10 @@ El gráfico de x(t), v(t), a(t) frente al tiempo es una función senoidal o cose
 
 - a(t): aceleración → opuesta al desplazamiento
 
+## 8. Graficos 
+
+<img width="800" height="400" alt="Figure_1" src="https://github.com/user-attachments/assets/7a779787-3446-41bb-8902-c9d467c2a914" />
+
+<img width="800" height="400" alt="Figure_2" src="https://github.com/user-attachments/assets/e87b55c5-207b-4bfc-8e15-1e364d56e180" />
+
+
