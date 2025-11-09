@@ -1,18 +1,16 @@
 [tool.poetry]
-name = "Proyecto_Lab"
+name = "movimiento_armonico"
 version = "0.1.0"
-description = "Proyecto inicializado "
-authors = ["Arnez Suárez Said Nils <saidnilsarnezsuarez@gmail.com>"]
+description = "Proyecto para graficar datos del movimiento armónico simple"
+authors = ["saidnilsarnez-code"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-numpy = "^2.1.0"
-pandas = "^2.2.2"
-matplotlib = "^3.9.2"
-scipy = "^1.14.1"
-jupyter = "^1.1.1"
+pandas = "^2.2.0"
+matplotlib = "^3.8.0"
+numpy = "^1.26.0"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
