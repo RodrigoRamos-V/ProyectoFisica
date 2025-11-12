@@ -1,10 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
-
-carpeta_graficos = "movimiento_armonico/graficos"
-if not os.path.exists(carpeta_graficos):
-    os.makedirs(carpeta_graficos)
 
 data = {
     "t": [0.000, 0.200, 0.400, 0.600, 0.800, 1.000],
@@ -23,7 +18,7 @@ plt.title("Movimiento Armónico Simple - Masa 2m (Tabla 4)")
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
-plt.savefig(os.path.join(carpeta_graficos, "grafico_posicion_tabla4.png"))
+plt.savefig("grafico_posicion_tabla4.png")
 plt.close()
 
 plt.figure(figsize=(8,4))
@@ -34,5 +29,5 @@ plt.title("Velocidad vs Tiempo - Masa 2m (Tabla 4)")
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
-plt.savefig(os.path.join(carpeta_graficos, "grafico_velocidad_tabla4.png"))
+plt.savefig("grafico_velocidad_tabla4.png")
 plt.close()
