@@ -9,7 +9,6 @@ data = {
 
 df = pd.DataFrame(data)
 
-# --- Gráfico posición vs tiempo ---
 plt.figure(figsize=(8,4))
 plt.plot(df["t"], df["x"], "o-", label="Posición x(t)")
 plt.xlabel("Tiempo [s]")
