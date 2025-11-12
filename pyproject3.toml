@@ -2,7 +2,7 @@
 name = "movimiento_armonico"
 version = "0.1.0"
 description = "Proyecto para graficar datos del movimiento armónico simple (m = 2)"
-authors = ["saidnilsarnez-code"]
+authors = ["RodrigoRamos-V"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
