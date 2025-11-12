@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "movimiento_armonico"
+version = "0.1.0"
+description = "Proyecto para graficar datos experimentales del movimiento armónico simple (m = 3m)"
+authors = ["Rodrigo Ramos-V"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.0"
+matplotlib = "^3.8.0"
+numpy = "^1.26.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
