@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Datos Tabla 3
 data = {
     "t": [0.000, 0.200, 0.400, 0.600, 0.800, 1.000],
     "x": [0.000, 0.710, 1.327, 1.772, 1.986, 1.941],
