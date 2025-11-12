@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "movimiento_armonico"
 version = "0.1.0"
-description = "Proyecto para graficar datos experimentales del movimiento armónico simple (masa 3m)"
+description = "Proyecto para graficar datos experimentales del movimiento armónico simple (m = 3m)"
 authors = ["Rodrigo Ramos-V"]
 readme = "README.md"
 
