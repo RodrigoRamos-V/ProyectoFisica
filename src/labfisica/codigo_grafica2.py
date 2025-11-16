@@ -1,31 +1,31 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
+csv_path = Path("src/labfisica/tabla2.csv")
+df = pd.read_csv(csv_path)
 
-data = {
-    "t": [0.000, 0.200, 0.400, 0.600, 0.800, 1.000],
-    "x": [0.707, 0.410, 0.060, -0.298, -0.618, -0.856],
-    "v": [-1.283, -1.654, -1.811, -1.731, -1.427, -0.936]
-}
+Path("plots").mkdir(parents=True, exist_ok=True)
 
-df = pd.DataFrame(data)
-
-plt.figure(figsize=(8, 4))
-plt.plot(df["t"], df["x"], "o-", label="Posición x(t)")
+plt.figure(figsize=(8, 5))
+plt.plot(df["t"], df["x"], "o-b", label="Posición")
+plt.title("Posición")
 plt.xlabel("Tiempo [s]")
-plt.ylabel("Posición [m]")
-plt.title("Movimiento Armónico Simple - Masa 3m")
-plt.legend()
+plt.ylabel("Magnitud")
 plt.grid(True)
+plt.legend()
 plt.tight_layout()
 plt.show()
+plt.savefig("plots/posicion.png", dpi=150)
 
-plt.figure(figsize=(8, 4))
-plt.plot(df["t"], df["v"], "o-r", label="Velocidad v(t)")
+plt.figure(figsize=(8, 5))
+plt.plot(df["t"], df["v"], "o-r", label="Velocidad")
+plt.title("Velocidad")
 plt.xlabel("Tiempo [s]")
-plt.ylabel("Velocidad [m/s]")
-plt.title("Velocidad vs Tiempo - Masa 3m")
-plt.legend()
+plt.ylabel("Magnitud")
 plt.grid(True)
+plt.legend()
 plt.tight_layout()
 plt.show()
+plt.savefig("plots/velocidad.png", dpi=150)
+savefig("plots/velocidad.png", dpi=150)
