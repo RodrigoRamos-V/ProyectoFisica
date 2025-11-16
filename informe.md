@@ -142,5 +142,9 @@ El gráfico de x(t), v(t), a(t) frente al tiempo es una función senoidal o cose
 
 <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/84297e5b-aea3-4a20-86ff-4c003b618bb8" />
 
+8.7. Cilindros: 
+
 <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/6c9f54f0-c974-4f94-a47b-caf47ef4f372" />
+
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/43d0b743-6ba8-45e4-a560-c15b6d869b84" />
 
