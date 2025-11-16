@@ -122,9 +122,9 @@ El gráfico de x(t), v(t), a(t) frente al tiempo es una función senoidal o cose
 
 <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/2dae06ea-7b7e-48ea-a876-cab43c9a0893" />
 
-<img width="800" height="400" alt="Figure_2" src="https://github.com/RodrigoRamos-V/ProyectoFisica/blob/main/grafico_posicion_tabla5.png?raw=true" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/c0b64da1-2ea8-454f-931f-15b6d3d60e9d" />
 
-<img width="800" height="400" alt="Figure_2" src="https://github.com/RodrigoRamos-V/ProyectoFisica/blob/main/grafico_velocidad_tabla5.png?raw=true" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/fcae338d-97f0-481f-bd19-9a94b0fb2d78" />
 
 <img width="800" height="400" alt="Figure_2" src="https://github.com/RodrigoRamos-V/ProyectoFisica/blob/main/grafico_posicion_tabla6.png?raw=true" />
 
