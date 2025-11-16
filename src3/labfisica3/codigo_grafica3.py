@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-csv_path = Path("src2/labfisica2/tabla3.csv")
+csv_path = Path("src3/labfisica3/tabla3.csv")
 df = pd.DataFrame(data)
 
 Path("plots").mkdir(parents=True, exist_ok=True)
