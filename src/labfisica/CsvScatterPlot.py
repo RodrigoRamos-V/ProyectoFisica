@@ -49,12 +49,5 @@ def main() -> None:
     show_plot(fig)
     save_plot(fig, "plots/posicion_vs_tiempo.png")
 
-    # Velocidad vs Tiempo
-    vel_data = CsvData(df["t"], df["v"], xName="Tiempo [s]", yName="Velocidad [m/s]")
-    fig, _ = make_plot(vel_data)
-    show_plot(fig)
-    save_plot(fig, "plots/velocidad_vs_tiempo.png")
-
-
 if __name__ == "__main__":
     main()
