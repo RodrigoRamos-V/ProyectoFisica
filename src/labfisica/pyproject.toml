@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "movimiento_armonico_tabla3"
+name = "movimiento_armonico"
 version = "0.1.0"
-description = "Proyecto para graficar datos experimentales del movimiento armónico simple (Tabla 3, m = 3m)"
-authors = ["RodrigoRamos-V"]
+description = "Proyecto para graficar datos experimentales del movimiento armónico simple (m = 3m)"
+authors = ["Rodrigo Ramos-V"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
