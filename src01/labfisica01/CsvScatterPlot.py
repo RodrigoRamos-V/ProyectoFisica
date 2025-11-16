@@ -12,15 +12,17 @@ class CsvData:
         self.y = y
         self.xName = xName
         self.yName = yName
-        self.color = color 
+        self.color = color
 
 
 def make_plot(data: CsvData, scatter: bool = True) -> Tuple[plt.Figure, plt.Axes]:
     fig, ax = plt.subplots(figsize=(8, 6))
+
     if scatter:
         ax.scatter(data.x, data.y, marker='o', label=data.yName, color=data.color)
     else:
         ax.plot(data.x, data.y, "o-", label=data.yName, color=data.color)
+
     ax.set_title(data.yName)
     ax.set_xlabel(data.xName)
     ax.set_ylabel("Magnitud")
@@ -30,27 +32,26 @@ def make_plot(data: CsvData, scatter: bool = True) -> Tuple[plt.Figure, plt.Axes
     return fig, ax
 
 
-def show_plot(fig: plt.Figure) -> None:
-    plt.show()
-
-
-def save_plot(fig: plt.Figure, filename: str | Path) -> None:
-    Path(filename).parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(filename, format="png", dpi=150)
-
-
 def main() -> None:
+
     data = {
-        "H_cm": [1.00, 2.00, 3.00, 4.00, 5.00, 6.00],
-        "m_g":  [8.65, 17.30, 25.95, 34.63, 43.31, 51.95]
+        "H": [1.00, 2.00, 3.00, 4.00, 5.00, 6.00],
+        "m": [8.65, 17.30, 25.95, 34.63, 43.31, 51.95]
     }
+
     df = pd.DataFrame(data)
+    Path("plots_cil").mkdir(parents=True, exist_ok=True)
 
-    cilindros_data = CsvData(df["H_cm"], df["m_g"], xName="H [cm]", yName="m [g]", color="b")
+    masa_data = CsvData(
+        df["H"], df["m"],
+        xName="Altura H [cm]",
+        yName="Masa [g] - Cilindros",
+        color="b"
+    )
 
-    fig, _ = make_plot(cilindros_data, scatter=True)
-    show_plot(fig)
-    save_plot(fig, "plots_C1/cilindros.png")
+    fig, _ = make_plot(masa_data, scatter=False)
+    plt.show()
+    fig.savefig("plots_cil/cilindros_masa_vs_altura.png", dpi=150)
 
 
 if __name__ == "__main__":
