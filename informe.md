@@ -110,13 +110,13 @@ El gráfico de x(t), v(t), a(t) frente al tiempo es una función senoidal o cose
 
 <img width="800" height="400" alt="Figure_2" src="https://github.com/user-attachments/assets/e87b55c5-207b-4bfc-8e15-1e364d56e180" />
 
-<img width="800" height="400" alt="Figure_1" src="https://github.com/RodrigoRamos-V/ProyectoFisica/blob/main/plots2/posicion2.png?raw=true" />
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/d50125bc-961d-4ce0-910e-7c6cd0f4238d" />
 
-<img width="800" height="400" alt="Figure_1" src="https://github.com/RodrigoRamos-V/ProyectoFisica/blob/main/plots2/velocidad2.png?raw=true" />
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/59bcad76-dfd5-4feb-b5d2-bfb2272742e8" />
 
-<img width="800" height="400" alt="Figure_2" src="https://github.com/RodrigoRamos-V/ProyectoFisica/blob/main/grafico_posicion_tabla3.png?raw=true" />
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/fe90c71a-9741-4aad-89ba-e9b580f583e8" />
 
-<img width="800" height="400" alt="Figure_2" src="https://github.com/RodrigoRamos-V/ProyectoFisica/blob/main/grafico_velocidad_tabla3.png?raw=true" />
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/a299ec30-d6a1-4d80-a589-4eb7f78f8adf" />
 
 <img width="800" height="400" alt="Figure_2" src="https://github.com/RodrigoRamos-V/ProyectoFisica/blob/main/grafico_posicion_tabla4.png?raw=true" />
 
