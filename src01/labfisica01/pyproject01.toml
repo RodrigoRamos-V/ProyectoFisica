@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "movimiento_armonico"
+version = "0.1.0"
+description = "Proyecto para graficar datos experimentales del mas (tabla 1: h - m)"
+authors = ["Rodrigo Ramos-V"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.3.1"
+matplotlib = "^3.10"
+numpy = "^1.26.2"
+
+[tool.poetry.dev-dependencies]
+# Dependencias de desarrollo opcionales
+pytest = "^7.4"
+
+[build-system]
+requires = ["poetry-core>=2.2.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
