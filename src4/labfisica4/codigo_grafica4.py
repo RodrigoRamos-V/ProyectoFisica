@@ -5,7 +5,7 @@ from pathlib import Path
 csv_path = Path("src4/labfisica4/tabla4.csv")
 df = pd.DataFrame(data)
 
-Path("plots").mkdir(parents=True, exist_ok=True)
+Path("plots4").mkdir(parents=True, exist_ok=True)
 
 plt.figure(figsize=(8,5))
 plt.plot(df["t"], df["x"], "o-", label="Posición")
@@ -17,6 +17,7 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 plt.savefig("plots4/posicion4.png", dpi=150)
+plt.close()
 
 plt.figure(figsize=(8,5))
 plt.plot(df["t"], df["v"], "o-r", label="Velocidad")
@@ -28,4 +29,4 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 plt.savefig("plots4/velocidad4.png", dpi=150)
-savefig("plots4/velocidad4.png", dpi=150)
+plt.close()
