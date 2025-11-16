@@ -25,7 +25,7 @@ def make_plot(data: CsvData, scatter: bool = True) -> Tuple[plt.Figure, plt.Axes
 
     ax.set_title(data.yName)
     ax.set_xlabel(data.xName)
-    ax.set_ylabel("Magnitud")
+    ax.set_ylabel(data.yName)
     ax.grid(True, which="both", linestyle="--", linewidth=0.5, alpha=0.7)
     ax.legend()
     fig.tight_layout()
@@ -42,17 +42,29 @@ def main() -> None:
     df = pd.DataFrame(data)
     Path("plots_cil").mkdir(parents=True, exist_ok=True)
 
-    masa_data = CsvData(
-        df["H"], df["m"],
-        xName="Altura H [cm]",
-        yName="Masa [g] - Cilindros",
-        color="b"
+    altura_data = CsvData(
+        x=df.index,
+        y=df["H"],
+        xName="Índice",
+        yName="Altura H [cm]",
+        color="green"
     )
 
-    fig, _ = make_plot(masa_data, scatter=False)
+    fig_h, _ = make_plot(altura_data, scatter=False)
     plt.show()
-    fig.savefig("plots_cil/cilindros_masa_vs_altura.png", dpi=150)
+    fig_h.savefig("plots_cil/cilindros_altura.png", dpi=150)
 
+    masa_data = CsvData(
+        x=df.index,
+        y=df["m"],
+        xName="Índice",
+        yName="Masa [g]",
+        color="red"
+    )
+
+    fig_m, _ = make_plot(masa_data, scatter=False)
+    plt.show()
+    fig_m.savefig("plots_cil/cilindros_masa.png", dpi=150)
 
 if __name__ == "__main__":
     main()
