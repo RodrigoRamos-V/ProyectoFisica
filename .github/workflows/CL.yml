@@ -28,4 +28,4 @@ jobs:
 
     - name: Run plotting script
       run: |
-        python main.py
+        python src03/labfisica03/codigo_grafica03.py
