@@ -154,4 +154,11 @@ El gráfico de x(t), v(t), a(t) frente al tiempo es una función senoidal o cose
 
 <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/49fbf459-2727-4bec-8f1b-3f0bc70920ff" />
 
+8.9. Esferas: 
+
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/475fc1ea-6da7-4a97-ba2d-71b59c0b1480" />
+
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/1361c5d1-ccd5-4f9f-b584-3734afa3fcc3" />
+
+
 
