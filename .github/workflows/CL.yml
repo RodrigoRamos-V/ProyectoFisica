@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -20,17 +19,7 @@ jobs:
           python-version: "3.10"
 
       - name: Install dependencies
-        run: |
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        run: pip install numpy pandas matplotlib
 
-      - name: Run Python script
-        run: |
-          echo "Ejecutando graficos.py..."
-          python srcmmc/graficos.py
-
-      - name: Upload artifact (logs)
-        uses: actions/upload-artifact@v4
-        with:
-          name: salida-del-script
-          path: "*.log"
-          if-no-files-found: ignore
+      - name: Ejecutar graficos.py
+        run: python srcmmc/graficos.py
