@@ -24,9 +24,11 @@ def graficar(D, m):
     plt.legend()
     plt.tight_layout()
 
+    import os
     os.makedirs("srcmmc", exist_ok=True)
     plt.savefig("srcmmc/linearizado_mmc.png", dpi=150)
     plt.close()
+
 
 if __name__ == "__main__":
     D = [0.713, 0.998, 1.501, 1.746, 1.905, 2.222]
