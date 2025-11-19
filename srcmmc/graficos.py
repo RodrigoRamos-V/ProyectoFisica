@@ -16,7 +16,6 @@ def graficar(D, m):
     plt.figure(figsize=(7,5))
     plt.scatter(X, Y, label="Datos linearizados")
     plt.plot(X_plot, Y_plot, label=f"Ajuste MMC\nA={A:.3f}±{eA:.3f}\nB={B:.3f}±{eB:.3f}")
-
     plt.xlabel("ln(D)")
     plt.ylabel("ln(m)")
     plt.title("Linearización y Ajuste MMC")
@@ -24,11 +23,9 @@ def graficar(D, m):
     plt.legend()
     plt.tight_layout()
 
-    import os
     os.makedirs("srcmmc", exist_ok=True)
     plt.savefig("srcmmc/linearizado_mmc.png", dpi=150)
     plt.close()
-
 
 if __name__ == "__main__":
     D = [0.713, 0.998, 1.501, 1.746, 1.905, 2.222]
