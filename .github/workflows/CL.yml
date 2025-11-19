@@ -1,36 +1,36 @@
-name: Python MMC
+name: Python CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install numpy matplotlib
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Run MMC script
-      run: |
-        python graficos.py
+      - name: Run Python script
+        run: |
+          echo "Ejecutando main.py..."
+          python main.py
 
-    - name: Upload generated images
-      uses: actions/upload-artifact@v3
-      with:
-        name: graficos-mmc
-        path: grafico_mmc.png
+      - name: Upload artifact (logs)
+        uses: actions/upload-artifact@v4
+        with:
+          name: salida-del-script
+          path: "*.log"
+          if-no-files-found: ignore
