@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          persist-credentials: true 
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -35,7 +35,7 @@ jobs:
           git commit -m "Actualizar imagen generada automáticamente" || echo "No hay cambios para commitear"
           git push origin HEAD:auto-img
 
-      - name: Crear Pull Request a main
+      - name: Crear Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
