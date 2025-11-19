@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import matplotlib
-matplotlib.use("Agg")
+matplotlib.use("Agg") 
 import matplotlib.pyplot as plt
 from linearizacion import linearizar
 from mmc import mmc
