@@ -1,8 +1,12 @@
 import os
+import sys
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+sys.path.append(os.path.dirname(__file__))
+
 from linearizacion import linearizar
 from mmc import mmc
 
@@ -23,8 +27,8 @@ def graficar(D, m):
     plt.legend()
     plt.tight_layout()
 
-    os.makedirs("srcmmc", exist_ok=True)
-    plt.savefig("srcmmc/linearizado_mmc.png", dpi=150)
+    os.makedirs(os.path.join(os.path.dirname(__file__), "srcmmc"), exist_ok=True)
+    plt.savefig(os.path.join(os.path.dirname(__file__), "srcmmc", "linearizado_mmc.png"), dpi=150)
     plt.close()
 
 if __name__ == "__main__":
