@@ -7,7 +7,6 @@ def graficar(D, m):
     X, Y = linearizar(D, m)
     A, B, eA, eB = mmc(X, Y)
 
-    # Recta ajustada
     X_plot = np.linspace(min(X), max(X), 200)
     Y_plot = A + B * X_plot
 
