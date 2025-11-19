@@ -1,9 +1,7 @@
-name: Python CI
+name: Generar y subir gráfica
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -11,33 +9,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     - uses: actions/checkout@v4
-       with:
-         persist-credentials: true 
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
-     - name: Set up Python
-       uses: actions/setup-python@v4
-       with:
-         python-version: "3.10"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
 
-     - name: Install dependencies
-       run: pip install numpy pandas matplotlib
+      - name: Install dependencies
+        run: pip install numpy matplotlib pandas
 
-     - name: Ejecutar graficos.py
-       run: python srcmmc/graficos.py
+      - name: Ejecutar graficos.py
+        run: python srcmmc/graficos.py
 
-     - name: Configurar git
-       run: |
-         git config --global user.name "github-actions"
-         git config --global user.email "actions@github.com"
+      - name: Configurar git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
 
-     - name: Commit y push de la imagen
-       run: |
-         git config --global user.name "github-actions"
-         git config --global user.email "actions@github.com"
-         git add srcmmc/linearizado_mmc.png
-         git commit -m "Actualizar imagen generada automáticamente" || echo "No hay cambios para commitear"
-         git push origin HEAD:auto-img
+      - name: Commit y push de la imagen
+        run: |
+          git add srcmmc/linearizado_mmc.png
+          git commit -m "Actualizar imagen generada automáticamente" || echo "No hay cambios para commitear"
+          git push origin HEAD:auto-img
 
-
-
+      - name: Crear Pull Request a main
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Actualizar imagen generada automáticamente"
+          branch: auto-img
+          base: main
+          title: "Actualizar imagen"
+          body: "Actualización automática de la gráfica generada por workflow."
+          labels: "auto-update"
