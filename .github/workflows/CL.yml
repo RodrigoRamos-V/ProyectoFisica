@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: true 
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -29,11 +29,13 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
 
-      - name: Commit y push de la imagen
+      - name: Reescribir rama auto-img
         run: |
+          git checkout --orphan auto-img
+          git reset --hard
           git add srcmmc/linearizado_mmc.png
-          git commit -m "Actualizar imagen generada automáticamente" || echo "No hay cambios para commitear"
-          git push origin HEAD:auto-img
+          git commit -m "Actualizar imagen generada automáticamente"
+          git push --force origin auto-img
 
       - name: Crear Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -45,3 +47,4 @@ jobs:
           title: "Actualizar imagen"
           body: "Actualización automática de la gráfica generada por workflow."
           labels: "auto-update"
+          draft: false
