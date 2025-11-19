@@ -25,7 +25,7 @@ jobs:
         run: python srcmmc/graficos.py
 
       - name: Subir imagen como artefacto
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: grafica-linearizacion
           path: srcmmc/linearizado_mmc.png
