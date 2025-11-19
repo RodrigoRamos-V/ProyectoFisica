@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from linearizacion import linearizar
 from mmc import mmc
@@ -21,8 +23,10 @@ def graficar(D, m):
     plt.legend()
     plt.tight_layout()
 
-    plt.savefig("linearizado_mmc.png", dpi=150)
-    plt.show()
+    import os
+    os.makedirs("srcmmc", exist_ok=True)
+    plt.savefig("srcmmc/linearizado_mmc.png", dpi=150)
+    # plt.show()
 
 
 if __name__ == "__main__":
