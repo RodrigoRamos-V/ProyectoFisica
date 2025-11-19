@@ -25,8 +25,8 @@ jobs:
 
       - name: Run Python script
         run: |
-          echo "Ejecutando main.py..."
-          python srcmmc/main.py
+          echo "Ejecutando graficos.py..."
+          python srcmmc/graficos.py
 
       - name: Upload artifact (logs)
         uses: actions/upload-artifact@v4
