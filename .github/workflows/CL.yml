@@ -29,12 +29,12 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
 
-      - name: Reescribir rama auto-img
+      - name: Commit y push a rama auto-img
         run: |
-          git checkout --orphan auto-img
-          git reset --hard
+          git fetch origin auto-img || true
+          git checkout -B auto-img   # Crea o resetea auto-img
           git add srcmmc/linearizado_mmc.png
-          git commit -m "Actualizar imagen generada automáticamente"
+          git commit -m "Actualizar imagen generada automáticamente" || echo "No hay cambios para commitear"
           git push --force origin auto-img
 
       - name: Crear Pull Request
