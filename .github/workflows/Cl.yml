@@ -26,13 +26,27 @@ jobs:
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
     - name: Install dependencies
-      run: poetry install -C mmc --no-root
+      run: |
+        poetry install -C mmc --no-root
 
+    # 5. Ejecutar tests con pytest
     - name: Run tests
-      run: poetry run -C mmc pytest -v
+      run: |
+        poetry run -C mmc pytest -v
 
     - name: Run grafico.py
-      run: poetry run -C mmc python grafico.py
+      run: |
+        poetry run -C mmc python grafico.py
+
+    - name: Commit & push generated image
+      run: |
+        cd mmc
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+
+        git add image/linearizado_mmc.png || true
+        git commit -m "Actualizar gráfico generado automáticamente" || echo "No hay cambios"
+        git push
 
     - name: Commit & push generated image
       run: |
