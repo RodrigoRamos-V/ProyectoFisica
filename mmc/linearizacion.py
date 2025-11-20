@@ -19,7 +19,6 @@ plt.scatter(t, Y, label="Datos linearizados")
 # Recta MMC
 plt.plot(x_plot, y_plot, label=f"Ajuste MMC\nA={mmc.A:.4f}±{mmc.A_err:.4f}\nB={mmc.B:.4f}±{mmc.B_err:.4f}")
 
-# Etiquetas y estilo
 plt.xlabel("t")
 plt.ylabel("Y = acos(x/xmax)")
 plt.title("Ajuste por Mínimos Cuadrados (MMC)")
@@ -27,6 +26,5 @@ plt.grid(True)
 plt.legend()
 plt.tight_layout()
 
-# Guardar
-plt.savefig("linearizado_mmc.png", dpi=150)
+plt.savefig("mmc/linearizado_mmc.png", dpi=150)
 plt.close()
