@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from MMC import MMC
 
-# Crear carpeta 'image' dentro de mmc/
 os.makedirs("image", exist_ok=True)
 
 t = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
