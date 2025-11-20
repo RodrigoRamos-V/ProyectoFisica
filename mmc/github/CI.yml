@@ -3,6 +3,7 @@ name: CI - ProyectoFisica
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -11,6 +12,8 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GH_TOKEN }}
 
     - name: Install Python
       uses: actions/setup-python@v4
@@ -31,3 +34,18 @@ jobs:
       run: |
         export PATH="$HOME/.local/bin:$PATH"
         poetry run pytest -v
+
+    - name: Run grafico.py
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        poetry run python grafico.py
+
+    - name: Commit & push generated image
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+
+        git add mmc/image/linearizado_mmc.png || true
+        git commit -m "Actualizar gráfico generado automáticamente" || echo "No hay cambios"
+
+        git push
