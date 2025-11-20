@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from mmc import MMC
+from MMC import MMC
 
 t = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
 Y = [0.000000, 0.313, 0.627, 0.942, 1.256, 1.571]
