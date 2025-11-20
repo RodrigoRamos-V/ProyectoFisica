@@ -10,21 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # 1. Hacer checkout del repositorio
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
+    # 2. Configurar Python 3.12
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: "3.12"
 
+    # 3. Instalar Poetry
     - name: Install Poetry
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
+    # 4. Instalar dependencias y dev-dependencies sin instalar el proyecto
     - name: Install dependencies
       run: |
         poetry install -C mmc --no-root
@@ -34,10 +38,12 @@ jobs:
       run: |
         poetry run -C mmc pytest -v
 
+    # 6. Ejecutar grafico.py (generará la imagen)
     - name: Run grafico.py
       run: |
         poetry run -C mmc python grafico.py
 
+    # 7. Commit & push del gráfico generado
     - name: Commit & push generated image
       run: |
         cd mmc
@@ -47,12 +53,6 @@ jobs:
         git add image/linearizado_mmc.png || true
         git commit -m "Actualizar gráfico generado automáticamente" || echo "No hay cambios"
         git push
-
-    - name: Commit & push generated image
-      run: |
-        cd mmc
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions@github.com"
 
         git add image/linearizado_mmc.png || true
         git commit -m "Actualizar gráfico generado automáticamente" || echo "No hay cambios"
