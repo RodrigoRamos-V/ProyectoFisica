@@ -26,5 +26,5 @@ plt.grid(True)
 plt.legend()
 plt.tight_layout()
 
-plt.savefig("mmc/image/linearizado_mmc.png", dpi=150)
+plt.savefig("image/linearizado_mmc.png", dpi=150)
 plt.close()
