@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd mmc  # Entrar a la carpeta donde está pyproject.toml
+        cd mmc
         poetry install
 
     - name: Run tests
@@ -35,10 +35,10 @@ jobs:
         cd mmc
         poetry run pytest -v
 
-    - name: Run linearizacion.py
+    - name: Run grafico.py
       run: |
         cd mmc
-        poetry run python linearizacion.py
+        poetry run python grafico.py
 
     - name: Commit & push generated image
       run: |
