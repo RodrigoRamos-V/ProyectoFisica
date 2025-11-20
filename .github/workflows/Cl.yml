@@ -30,7 +30,7 @@ jobs:
       run: poetry install -C mmc --no-root
 
     - name: Generate plot
-      run: poetry run -C mmc python mmc/linearizacion.py
+      run: poetry run -C mmc python linearizacion.py
 
     # 6. Commit & push del gráfico generado
     - name: Commit & Push plot
