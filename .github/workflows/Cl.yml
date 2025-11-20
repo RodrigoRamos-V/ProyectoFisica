@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
+    # 1. Checkout del repositorio
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     # 2. Configurar Python 3.12
@@ -25,15 +26,19 @@ jobs:
         curl -sSL https://install.python-poetry.org | python3 -
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-    # 4. Instalar dependencias
+    # 4. Instalar dependencias sin instalar el proyecto
     - name: Install dependencies
-      run: poetry install -C mmc --no-root
+      run: |
+        poetry install -C mmc --no-root
 
-    - name: Generate plot
-      run: poetry run -C mmc python linearizacion.py
+    # 5. Ejecutar linearizacion.py o grafico.py para generar la imagen
+    - name: Run linearizacion.py
+      run: |
+        cd mmc
+        poetry run python linearizacion.py
 
-    # 6. Commit & push del gráfico generado
-    - name: Commit & Push plot
+    # 6. Commit & push de la imagen generada
+    - name: Commit & Push generated image
       run: |
         cd mmc
         git config --global user.name "github-actions"
@@ -41,3 +46,4 @@ jobs:
         git add image/linearizado_mmc.png || true
         git commit -m "Actualizar gráfico automáticamente" || echo "No hay cambios"
         git push
+
