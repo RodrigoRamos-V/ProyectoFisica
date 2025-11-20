@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Hacer checkout del repositorio
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
@@ -28,14 +27,15 @@ jobs:
         curl -sSL https://install.python-poetry.org | python3 -
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-    # 4. Instalar dependencias y dev-dependencies sin instalar el proyecto
+    # 4. Instalar dependencias sin instalar el proyecto
     - name: Install dependencies
       run: |
         poetry install -C mmc --no-root
 
-    # 5. Ejecutar tests con pytest
+    # 5. Ejecutar tests con pytest (PYTHONPATH para encontrar MMC.py)
     - name: Run tests
       run: |
+        export PYTHONPATH="$PYTHONPATH:$(pwd)/mmc"
         poetry run -C mmc pytest -v
 
     # 6. Ejecutar grafico.py (generará la imagen)
@@ -49,10 +49,6 @@ jobs:
         cd mmc
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
-
-        git add image/linearizado_mmc.png || true
-        git commit -m "Actualizar gráfico generado automáticamente" || echo "No hay cambios"
-        git push
 
         git add image/linearizado_mmc.png || true
         git commit -m "Actualizar gráfico generado automáticamente" || echo "No hay cambios"
