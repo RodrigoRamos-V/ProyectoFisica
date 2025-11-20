@@ -6,50 +6,47 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  run-ci:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
+    - name: Checkout repository
       uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
 
-    # 2. Configurar Python 3.12
-    - name: Setup Python
+    # Instalar Python 3.12
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: "3.12"
 
-    # 3. Instalar Poetry
+    # Instalar Poetry
     - name: Install Poetry
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-    # 4. Instalar dependencias sin instalar el proyecto
+    # Instalar dependencias del proyecto
     - name: Install dependencies
       run: |
         poetry install -C mmc --no-root
 
-    # 5. Ejecutar tests con pytest (PYTHONPATH para encontrar MMC.py)
+    # Ejecutar tests con PYTHONPATH ajustado
     - name: Run tests
       run: |
-        export PYTHONPATH="$PYTHONPATH:$(pwd)/mmc"
+        export PYTHONPATH="$(pwd)/mmc"
         poetry run -C mmc pytest -v
 
-    # 6. Ejecutar grafico.py (generará la imagen)
-    - name: Run grafico.py
+    # Ejecutar grafico.py para generar imagen
+    - name: Generate plot
       run: |
         poetry run -C mmc python grafico.py
 
-    # 7. Commit & push del gráfico generado
-    - name: Commit & push generated image
+    # Hacer commit y push de la imagen generada
+    - name: Commit & Push plot
       run: |
         cd mmc
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
-
         git add image/linearizado_mmc.png || true
-        git commit -m "Actualizar gráfico generado automáticamente" || echo "No hay cambios"
+        git commit -m "Actualizar gráfico automáticamente" || echo "No hay cambios"
         git push
