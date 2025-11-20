@@ -26,16 +26,13 @@ jobs:
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
     - name: Install dependencies
-      run: |
-        poetry install -C mmc
+      run: poetry install -C mmc --no-root
 
     - name: Run tests
-      run: |
-        poetry run -C mmc pytest -v
+      run: poetry run -C mmc pytest -v
 
     - name: Run grafico.py
-      run: |
-        poetry run -C mmc python grafico.py
+      run: poetry run -C mmc python grafico.py
 
     - name: Commit & push generated image
       run: |
