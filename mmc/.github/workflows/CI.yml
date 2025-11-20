@@ -18,7 +18,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
+        python-version: "3.12"
 
     - name: Install Poetry
       run: |
@@ -26,16 +26,23 @@ jobs:
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
     - name: Install dependencies
-      run: poetry install
+      run: |
+        cd ProyectoFisica/ProyectoFisica  # Cambia esta ruta si tu pyproject.toml está en otra carpeta
+        poetry install
 
     - name: Run tests
-      run: poetry run pytest -v
+      run: |
+        cd ProyectoFisica/ProyectoFisica
+        poetry run pytest -v
 
     - name: Run grafico.py
-      run: poetry run python grafico.py
+      run: |
+        cd ProyectoFisica/ProyectoFisica
+        poetry run python grafico.py
 
     - name: Commit & push generated image
       run: |
+        cd ProyectoFisica/ProyectoFisica
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
 
