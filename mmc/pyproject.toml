@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "discos_masa_diametro"
+name = "a_b_errores"
 version = "0.1.0"
 description = "Ajuste por Mínimos Cuadrados (MMC)."
 authors = ["Rodrigo Ramos-V"]
