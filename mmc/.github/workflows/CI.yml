@@ -27,25 +27,25 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd ProyectoFisica/ProyectoFisica  # Cambia esta ruta si tu pyproject.toml está en otra carpeta
+        cd mmc  # Entrar a la carpeta donde está pyproject.toml
         poetry install
 
     - name: Run tests
       run: |
-        cd ProyectoFisica/ProyectoFisica
+        cd mmc
         poetry run pytest -v
 
-    - name: Run grafico.py
+    - name: Run linearizacion.py
       run: |
-        cd ProyectoFisica/ProyectoFisica
-        poetry run python grafico.py
+        cd mmc
+        poetry run python linearizacion.py
 
     - name: Commit & push generated image
       run: |
-        cd ProyectoFisica/ProyectoFisica
+        cd mmc
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
 
-        git add mmc/image/linearizado_mmc.png || true
+        git add image/linearizado_mmc.png || true
         git commit -m "Actualizar gráfico generado automáticamente" || echo "No hay cambios"
         git push
