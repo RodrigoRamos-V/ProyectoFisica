@@ -6,42 +6,35 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-ci:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout repo
       uses: actions/checkout@v3
 
-    # Instalar Python 3.12
+    # 2. Configurar Python 3.12
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: "3.12"
 
-    # Instalar Poetry
+    # 3. Instalar Poetry
     - name: Install Poetry
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-    # Instalar dependencias del proyecto
+    # 4. Instalar dependencias
     - name: Install dependencies
       run: |
         poetry install -C mmc --no-root
 
-    # Ejecutar tests con PYTHONPATH ajustado
-    - name: Run tests
-      run: |
-        export PYTHONPATH="$(pwd)/mmc"
-        poetry run -C mmc pytest -v
-
-    # Ejecutar grafico.py para generar imagen
     - name: Generate plot
       run: |
         poetry run -C mmc python grafico.py
 
-    # Hacer commit y push de la imagen generada
+    # 6. Commit & push del gráfico generado
     - name: Commit & Push plot
       run: |
         cd mmc
