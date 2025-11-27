@@ -16,11 +16,11 @@ F = −kx
 
 Donde:
 
-F = fuerza restauradora (N)
+F = fuerza restauradora (N).
 
-k = constante elástica o constante del sistema (N/m)
+k = constante elástica o constante del sistema (N/m).
 
-x = desplazamiento respecto a la posición de equilibrio (m)
+x = desplazamiento respecto a la posición de equilibrio (m).
 
 El signo negativo indica que la fuerza se opone al desplazamiento.
 
