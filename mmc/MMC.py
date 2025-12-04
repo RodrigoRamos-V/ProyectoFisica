@@ -1,60 +1,36 @@
-from __future__ import annotations
-from typing import List
-from pydantic import BaseModel, Field, model_validator
-import math
+import numpy as np
+import matplotlib.pyplot as plt
 
-class MMC(BaseModel):
-    x: List[float]
-    y: List[float]
+def plot_data_from_file(archivo):
 
-    n: int = 0
-    sum_x: float = 0.0
-    sum_y: float = 0.0
-    sum_x2: float = 0.0
-    sum_xy: float = 0.0
-    delta: float = 0.0
-    A: float = 0.0
-    B: float = 0.0
-    sigma2: float = 0.0
-    A_err: float = 0.0
-    B_err: float = 0.0
+    try:
+        data = np.loadtxt(archivo)
+    except IOError:
+        print("Error: No se pudo encontrar o leer el archivo '{archivo}'")
+        return
+    except ValueError:
+        print("Error: Problema al parsear datos del archivo '{archivo}'")
+        return
 
-    @model_validator(mode="after")
-    def _initialize(self) -> "MMC":
-        if len(self.x) != len(self.y):
-            raise ValueError("x and y must have same length")
 
-        self.n = len(self.x)
-        self._sums()
-        self._delta()
-        self._coeffA()
-        self._coeffB()
-        self._sigma2()
-        self._coeffA_err()
-        self._coeffB_err()
-        return self
+    t = data[:, 0]
+    x = data[:, 1]
+    y = data[:, 2]
 
-    def _sums(self):
-        self.sum_x = sum(self.x)
-        self.sum_y = sum(self.y)
-        self.sum_x2 = sum(xi * xi for xi in self.x)
-        self.sum_xy = sum(self.x[i] * self.y[i] for i in range(self.n))
+    plt.figure(figsize=(8, 5))
 
-    def _delta(self):
-        self.delta = self.n * self.sum_x2 - (self.sum_x ** 2)
+    plt.plot(t, x, marker="o", label="x(t)")
+    plt.plot(t, y, marker="s", label="y(t)")
 
-    def _coeffA(self):
-        self.A = (self.sum_x2 * self.sum_y - self.sum_x * self.sum_xy) / self.delta
+    plt.xlabel("t")
+    plt.ylabel("Valores")
+    plt.title("Gráficos de x(t) y y(t)")
+    plt.grid(True)
+    plt.legend()
 
-    def _coeffB(self):
-        self.B = (self.n * self.sum_xy - self.sum_x * self.sum_y) / self.delta
+    plt.show()
 
-    def _sigma2(self):
-        residual_sum = sum((self.y[i] - (self.A + self.B * self.x[i])) ** 2 for i in range(self.n))
-        self.sigma2 = residual_sum / (self.n - 2)
 
-    def _coeffA_err(self):
-        self.A_err = math.sqrt(self.sigma2 * self.sum_x2 / self.delta)
-
-    def _coeffB_err(self):
-        self.B_err = math.sqrt(self.sigma2 * self.n / self.delta)
+if __name__ == "__main__":
+    archivo_default = "datos_csv.txt"
+    plot_data_from_file(archivo_default)
