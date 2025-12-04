@@ -8,14 +8,11 @@ os.makedirs("image", exist_ok=True)
 t = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
 Y = [0.000000, 0.313, 0.627, 0.942, 1.256, 1.571]
 
-# Crear objeto MMC correctamente
 mmc = MMC(x_data=t, y_data=Y)
 
-# Calcular coeficientes y sus errores
 A, B = mmc.calculate_coefficients()
 dA, dB = mmc.calculate_errors()
 
-# Generar la recta para graficar
 x_plot = np.linspace(min(t), max(t), 200)
 y_plot = A + B * x_plot
 
