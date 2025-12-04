@@ -2,9 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plot_data_from_file(archivo):
-    """
-    Carga datos desde un archivo de texto y grafica x(t) y y(t).
-    """
+    
     try:
         data = np.loadtxt(archivo)
     except IOError:
@@ -32,7 +30,8 @@ def plot_data_from_file(archivo):
 
     plt.show()
 
-# Puedes ejecutar la función directamente si el archivo existe en la misma carpeta
+
 if __name__ == "__main__":
     archivo_default = "datos_csv.txt"
     plot_data_from_file(archivo_default)
+
