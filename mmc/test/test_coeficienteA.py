@@ -8,9 +8,8 @@ def test_coeficiente_A():
     xmax = max(x)
     Y = [math.acos(xi / xmax) for xi in x]
 
-    mmc = MMC(x=t, y=Y)
+    mmc = MMC(t, Y)
+    mmc.calculate_coefficients()
 
-    # Valor esperado de A
     A_esperado = 1.5706835709
-
     assert abs(mmc.A - A_esperado) < 1e-6
