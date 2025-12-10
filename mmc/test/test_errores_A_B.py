@@ -1,5 +1,5 @@
 import math
-from ProyectoFisica.MMC import MMC
+from MMC import MMC
 
 def test_errores_A_B():
     
