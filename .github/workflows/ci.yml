@@ -1,41 +1,49 @@
-name: CI - ProyectoFisica
+name: CI – ProyectoFisica
 
 on:
   push:
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         python-version: [3.12]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+        uses: abatilo/actions-poetry@v3 # acción que instala Poetry
+        with:
+          poetry-version: latest
 
-      - name: Install dependencies with Poetry (no-root)
+      - name: Configure Poetry to create venv in project
         run: |
-          if [ -f "mmc/pyproject.toml" ]; then
-            poetry install -C mmc --no-root --with dev
-          else
-            echo "No se encontró mmc/pyproject.toml — se salta instalación"
-          fi
+          poetry config virtualenvs.create true --local
+          poetry config virtualenvs.in-project true --local
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ./.venv
+          key: venv-${{ runner.os }}-py${{ matrix.python-version }}-${{ hashFiles('**/mmc/poetry.lock') }}
+          restore-keys: |
+            venv-${{ runner.os }}-py${{ matrix.python-version }}-
+
+      - name: Install dependencies
+        run: |
+          poetry install -C mmc --no-root --with dev
 
       - name: Run tests
         run: |
           poetry run pytest --maxfail=1 --disable-warnings -v
-
