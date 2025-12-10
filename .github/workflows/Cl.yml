@@ -30,6 +30,10 @@ jobs:
       run: |
         poetry install -C mmc --no-root
 
+    - name: Add mmc to PYTHONPATH
+      run: |
+        echo "PYTHONPATH=$PYTHONPATH:$(pwd)/mmc" >> $GITHUB_ENV
+
     - name: Run tests (pytest)
       run: |
         cd mmc
