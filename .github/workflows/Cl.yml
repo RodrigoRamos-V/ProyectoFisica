@@ -13,47 +13,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.12"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
 
-    - name: Install Poetry
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 -
-        echo "$HOME/.local/bin" >> $GITHUB_PATH
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-    - name: Install dependencies
-      run: |
-        poetry install -C mmc --no-root
+      - name: Install dependencies
+        run: |
+          poetry install -C mmc --no-root
 
-    - name: Ensure mmc is a package
-      run: |
-        touch mmc/__init__.py
+      - name: Run tests
+        run: |
+          cd mmc
+          poetry run pytest -q
 
-    - name: Add mmc to PYTHONPATH
-      run: |
-        echo "PYTHONPATH=$PYTHONPATH:$(pwd)/mmc" >> $GITHUB_ENV
+      - name: Run linearizacion.py
+        run: |
+          cd mmc
+          poetry run python linearizacion.py
 
-    - name: Run tests (pytest)
-      run: |
-        cd mmc
-        poetry run pytest -q
-
-    - name: Run linearizacion.py
-      run: |
-        cd mmc
-        poetry run python linearizacion.py
-
-    - name: Commit & Push generated image
-      if: github.event_name != 'pull_request'
-      run: |
-        cd mmc
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions@github.com"
-        git add image/linearizado_mmc.png || true
-        git commit -m "Actualizar gráfico automáticamente" || echo "No hay cambios"
-        git push
+      - name: Commit & Push generated image
+        if: github.event_name != 'pull_request'
+        run: |
+          cd mmc
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add image/linearizado_mmc.png || true
+          git commit -m "Actualizar gráfico automáticamente" || echo "No hay cambios"
+          git push
