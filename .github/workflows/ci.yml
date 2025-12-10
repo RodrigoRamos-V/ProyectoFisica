@@ -27,10 +27,10 @@ jobs:
           curl -sSL https://install.python-poetry.org | python3 -
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-      - name: Install dependencies with Poetry
+      - name: Install dependencies with Poetry (no-root)
         run: |
           if [ -f "mmc/pyproject.toml" ]; then
-            poetry install -C mmc --with dev
+            poetry install -C mmc --no-root --with dev
           else
             echo "No se encontró mmc/pyproject.toml — se salta instalación"
           fi
@@ -38,3 +38,4 @@ jobs:
       - name: Run tests
         run: |
           poetry run pytest --maxfail=1 --disable-warnings -v
+
