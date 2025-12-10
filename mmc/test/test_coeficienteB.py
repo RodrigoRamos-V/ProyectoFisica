@@ -8,8 +8,8 @@ def test_coeficiente_B():
     xmax = max(x)
     Y = [math.acos(xi / xmax) for xi in x]
 
-    mmc = MMC(x=t, y=Y)
+    mmc = MMC(t, Y)
+    mmc.calculate_coefficients()
 
     B_esperado = 0.0001267763
-
     assert abs(mmc.B - B_esperado) < 1e-6
