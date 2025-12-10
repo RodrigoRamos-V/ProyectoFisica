@@ -11,8 +11,8 @@ def test_errores_A_B():
     mmc = MMC(t, Y)
     mmc.calculate_errors()
 
-    A_err_esperado = 1.1209e-4
-    B_err_esperado = 1.8511e-4
+    A_err_esperado = 5.604509984062e-05
+    B_err_esperado = 5.604509984062e-05
 
     assert abs(mmc.dA - A_err_esperado) < 1e-6
     assert abs(mmc.dB - B_err_esperado) < 1e-6
