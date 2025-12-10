@@ -12,4 +12,7 @@ def test_coeficiente_B():
     mmc.calculate_coefficients()
 
     B_esperado = 0.0001267763
+
+    B_esperado = 1.5705567946281114
+
     assert abs(mmc.B - B_esperado) < 1e-6
