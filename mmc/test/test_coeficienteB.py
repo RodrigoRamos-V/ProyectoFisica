@@ -1,5 +1,5 @@
 import math
-from ProyectoFisica.MMC import MMC
+from MMC import MMC
 
 def test_coeficiente_B():
     t = [0.000, 0.200, 0.400, 0.600, 0.800, 1.000]
