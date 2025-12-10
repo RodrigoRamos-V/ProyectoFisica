@@ -30,6 +30,11 @@ jobs:
       run: |
         poetry install -C mmc --no-root
 
+    - name: Run tests (pytest)
+      run: |
+        cd mmc
+        poetry run pytest -q
+
     - name: Run linearizacion.py
       run: |
         cd mmc
