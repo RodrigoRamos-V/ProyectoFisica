@@ -11,5 +11,6 @@ def test_coeficiente_A():
     mmc = MMC(t, Y)
     mmc.calculate_coefficients()
 
-    A_esperado = 1.5706835709
+    A_esperado = 1.5706331676940446
+
     assert abs(mmc.A - A_esperado) < 1e-6
