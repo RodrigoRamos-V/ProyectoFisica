@@ -1,46 +1,34 @@
 name: CI - ProyectoFisica
 
-permissions:
-  contents: write
-
 on:
   push:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: [3.12]
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.12"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Install Poetry
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 -
-        echo "$HOME/.local/bin" >> $GITHUB_PATH
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pydantic
 
-    - name: Install dependencies
-      run: |
-        poetry install -C mmc --no-root
+      - name: Run tests
+        run: |
+          pytest --maxfail=1 --disable-warnings -v
 
-    - name: Run linearizacion.py
-      run: |
-        cd mmc
-        poetry run python linearizacion.py
-
-    - name: Commit & Push generated image
-      if: github.event_name != 'pull_request'
-      run: |
-        cd mmc
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions@github.com"
-        git add image/linearizado_mmc.png || true
-        git commit -m "Actualizar gráfico automáticamente" || echo "No hay cambios"
-        git push
