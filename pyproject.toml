@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "proyecto-fisica"
+version = "0.1.0"
+description = "Proyecto de laboratorio de física con MMC"
+authors = ["Tu Nombre <tu@email.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = "^2.1"
+matplotlib = "^3.8"   
+numpy = "^1.26"       
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
