@@ -6,7 +6,6 @@ import csv
 class MMC(BaseModel):
     x: List[float] 
     y: List[float]
-
     n: int = 0
     sum_x: float = 0.0
     sum_y: float = 0.0
