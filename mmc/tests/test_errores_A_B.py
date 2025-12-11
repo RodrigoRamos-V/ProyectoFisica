@@ -1,4 +1,4 @@
-from labfisica01 import MMC
+from mmc import MMC
 
 
 def test_errores_A_B():
