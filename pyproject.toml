@@ -2,7 +2,7 @@
 version = "0.1.0"
 readme = "README.md"
 packages = [
-     { include = "labfisica01" }
+     { include = "src01/labfisica01" }
 ]
 
 [tool.poetry.dependencies]
