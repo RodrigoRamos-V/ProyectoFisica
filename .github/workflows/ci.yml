@@ -36,3 +36,9 @@ jobs:
       - name: Run a simple command
         run: |
           echo "Dependencies installed. Workflow is running fine."
+
+
+      - name: Run Tests
+        run: |
+          cd mmc
+          pytest tests/
