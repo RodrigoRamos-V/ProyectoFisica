@@ -18,4 +18,4 @@ def test_errores_A_B():
     delta = n * sum_x2 - sum_x**2
     
     
-    A_manual = (sum_y * sum_x2 - sum_x * sum_xy)_
+    A_manual = (sum_y * sum_x2 - sum_x * sum_xy)
