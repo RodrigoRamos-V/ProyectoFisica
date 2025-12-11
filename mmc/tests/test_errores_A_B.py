@@ -1,4 +1,5 @@
-from labfisica import MMC
+from labfisica01 import MMC
+
 
 def test_errores_A_B():
     file_path = "tests/data/data.csv"

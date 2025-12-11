@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Ajuste por Mínimos Cuadrados (MMC)."
 authors = ["Rodrigo Ramos-V"]
 readme = "README.md"
+packages = [
+     { include = "labfisica01" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
