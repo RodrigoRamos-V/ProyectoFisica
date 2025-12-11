@@ -2,7 +2,7 @@ from mmc import MMC
 
 
 def test_errores_A_B():
-    file_path = "tests/data/data.csv"
+    file_path = "mmc/datos_csv.txt"
     
     
     mmc = MMC.from_csv(file_path)
