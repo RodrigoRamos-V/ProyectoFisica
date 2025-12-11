@@ -34,9 +34,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
-        run: |
-          poetry install -C mmc --no-root --with dev
+    
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
       - name: Run a simple command
         run: |
