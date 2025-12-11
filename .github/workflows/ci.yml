@@ -33,6 +33,8 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Install dependencies
+        run: pip install -r requirements.txt
+        
         run: |
           poetry install -C mmc --no-root --with dev
 
