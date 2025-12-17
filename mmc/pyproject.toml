@@ -5,7 +5,7 @@ description = "Ajuste por Mínimos Cuadrados (MMC)."
 authors = ["Rodrigo Ramos-V"]
 readme = "README.md"
 packages = [
-     { include = "src01/labfisica01" }
+     { include = "labfisica/src01/labfisica01" }
 ]
 
 [tool.poetry.dependencies]
