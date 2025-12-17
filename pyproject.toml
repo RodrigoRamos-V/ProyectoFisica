@@ -2,7 +2,7 @@
 version = "0.1.0"
 readme = "README.md"
 packages = [
-     { include = "src01/labfisica01" }
+     { include = "labfisica/src01/labfisica01" }
 ]
 
 [tool.poetry.dependencies]
@@ -18,3 +18,4 @@ pytest = "^8.4.0"
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
