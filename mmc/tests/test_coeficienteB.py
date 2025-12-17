@@ -1,7 +1,7 @@
 from mmc import MMC
 
 def test_coeficiente_B():
-    file_path = "mmc/datos_csv.txt"
+    file_path = "MMC/datos_csv.txt"
     
    
     mmc = MMC.from_csv(file_path)
