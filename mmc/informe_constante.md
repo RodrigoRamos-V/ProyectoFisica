@@ -107,7 +107,7 @@ Donde:
 - A = amplitud inicial (ejemplo: 0.05 m)
 
 - ϕ = fase inicial (ejemplo: 0)
-	​
+
 Código Python:
 
 import matplotlib.pyplot as plt
