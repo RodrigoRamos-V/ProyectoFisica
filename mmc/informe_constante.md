@@ -143,3 +143,17 @@ plt.show()
 Resultado:
 
 Se obtiene una gráfica de desplazamiento vs. tiempo, mostrando dos periodos completos del oscilador con masa 9m.
+
+## Limitaciones de los métodos utilizados
+
+El ajuste por mínimos cuadrados asume una relación lineal perfecta entre la fuerza y la elongación del resorte, lo cual solo es válido dentro del régimen elástico. Cualquier desviación de este comportamiento puede introducir errores sistemáticos. Además, el método considera incertidumbre únicamente en la variable dependiente, ignorando posibles errores en la elongación medida.
+Desde el punto de vista computacional, el código no contempla detección automática de valores atípicos ni errores en los datos de entrada, lo que puede afectar los resultados si los datos no son confiables.
+
+## Discusión de resultados y conclusiones finales
+
+Los resultados obtenidos para la constante elástica y el periodo de oscilación son coherentes con el modelo teórico del oscilador armónico simple. El bajo error asociado indica un buen ajuste de los datos experimentales.
+En conclusión, el método empleado permitió determinar correctamente los parámetros del sistema y verificar el comportamiento oscilatorio esperado, cumpliendo los objetivos de la experiencia.
+
+## Recomendaciones
+
+Se recomienda aumentar el número de mediciones experimentales y trabajar estrictamente dentro del rango elástico del resorte. También sería conveniente considerar errores en ambas variables y mejorar el código incorporando validaciones de datos. Finalmente, se sugiere ampliar las simulaciones para distintas masas y condiciones iniciales
