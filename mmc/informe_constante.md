@@ -23,3 +23,7 @@ Se cuenta con los datos experimentales de fuerza F y elongación ΔL en el archi
 0.800	         1.256
 
 1.000	         1.571
+
+Se realiza un ajuste lineal usando mínimos cuadrados:
+
+F = A + BΔL
