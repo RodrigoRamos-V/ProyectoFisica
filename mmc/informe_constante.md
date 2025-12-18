@@ -10,7 +10,7 @@
 
 Se cuenta con los datos experimentales de fuerza F y elongación ΔL en el archivo datos_csv.txt:
 
-ΔL (m) F (N)
+ ΔL(m)  F(N)
 
 0.000  0.000
 
